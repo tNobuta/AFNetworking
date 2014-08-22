@@ -12,9 +12,8 @@
 
 - (void)cancelRequest:(NSString *)requestIdentifier {
     NSUInteger taskIdentifier = [requestIdentifier integerValue];
-    if (taskIdentifier == 0) return;
     
-    for (NSURLSessionDataTask *task in self.dataTasks) {
+    for (NSURLSessionDataTask *task in self.tasks) {
         if (task.taskIdentifier == taskIdentifier) {
             [task cancel];
         }

@@ -15,6 +15,6 @@
 - (void)didSendRequest:(NSString *)requestIdentifier;
 - (void)didFinishRequest:(NSString *)requestIdentifier;
 - (void)cancelRequest:(NSString *)requestIdentifier inSessionManager:(AFURLSessionManager *)manager;
-- (void)cancelRequestsinSessionManager:(AFURLSessionManager *)manager;
+- (void)cancelRequestsInSessionManager:(AFURLSessionManager *)manager;
 
 @end

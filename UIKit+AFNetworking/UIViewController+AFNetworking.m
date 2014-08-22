@@ -46,7 +46,7 @@
     [[self currentRequestsInternal] removeObject:requestIdentifier];
 }
 
-- (void)cancelRequestsinSessionManager:(AFURLSessionManager *)manager {
+- (void)cancelRequestsInSessionManager:(AFURLSessionManager *)manager {
     NSMutableArray *requests = [self currentRequestsInternal];
     for(NSString *identifier in requests) {
         [manager cancelRequest:identifier];
