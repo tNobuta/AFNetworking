@@ -29,27 +29,22 @@
     return requests;
 }
 
-- (void)didSendRequest:(NSString *)requestIdentifier {
+- (void)didSendTask:(NSUInteger)taskIdentifier {
     NSMutableArray *requests = [self currentRequestsInternal];
-    if (![requests containsObject:requestIdentifier]) {
-        [requests addObject:requestIdentifier];
+    if (![requests containsObject:@(taskIdentifier)]) {
+        [requests addObject:@(taskIdentifier)];
     }
 }
 
-- (void)didFinishRequest:(NSString *)requestIdentifier {
-    NSMutableArray *requests = [self currentRequestsInternal];
-    [requests removeObject:requestIdentifier];
-}
-
-- (void)cancelRequest:(NSString *)requestIdentifier inSessionManager:(AFURLSessionManager *)manager {
-    [manager cancelRequest:requestIdentifier];
-    [[self currentRequestsInternal] removeObject:requestIdentifier];
+- (void)cancelTask:(NSUInteger)taskIdentifier inSessionManager:(AFURLSessionManager *)manager {
+    [manager cancelTask:taskIdentifier];
+    [[self currentRequestsInternal] removeObject:@(taskIdentifier)];
 }
 
 - (void)cancelRequestsInSessionManager:(AFURLSessionManager *)manager {
     NSMutableArray *requests = [self currentRequestsInternal];
-    for(NSString *identifier in requests) {
-        [manager cancelRequest:identifier];
+    for(NSNumber *identifier in requests) {
+        [manager cancelTask: [identifier unsignedIntValue]];
     }
         
     [[self currentRequestsInternal] removeAllObjects];

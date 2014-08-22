@@ -10,6 +10,6 @@
 
 @interface AFURLSessionManager (CancelRequest)
 
-- (void)cancelRequest:(NSString *)requestIdentifier;
-
+- (void)cancelTask:(NSUInteger)taskIdentifier;
+- (NSURLSessionTask *)taskForTaskIdentifier:(NSUInteger)taskIdentifier;
 @end

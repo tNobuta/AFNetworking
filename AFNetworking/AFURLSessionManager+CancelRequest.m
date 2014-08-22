@@ -10,14 +10,24 @@
 
 @implementation AFURLSessionManager (CancelRequest)
 
-- (void)cancelRequest:(NSString *)requestIdentifier {
-    NSUInteger taskIdentifier = [requestIdentifier integerValue];
-    
+- (void)cancelTask:(NSUInteger)taskIdentifier {
     for (NSURLSessionDataTask *task in self.tasks) {
         if (task.taskIdentifier == taskIdentifier) {
             [task cancel];
         }
     }
+}
+
+- (NSURLSessionTask *)taskForTaskIdentifier:(NSUInteger)taskIdentifier {
+    NSURLSessionTask *existTask = nil;
+    for (NSURLSessionTask *task in self.tasks) {
+        if (task.taskIdentifier == taskIdentifier) {
+            existTask = task;
+            break;
+        }
+    }
+    
+    return existTask;
 }
 
 @end

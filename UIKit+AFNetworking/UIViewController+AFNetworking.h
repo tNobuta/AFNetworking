@@ -12,9 +12,8 @@
 
 @property (nonatomic, readonly) NSArray *currentRequests;
 
-- (void)didSendRequest:(NSString *)requestIdentifier;
-- (void)didFinishRequest:(NSString *)requestIdentifier;
-- (void)cancelRequest:(NSString *)requestIdentifier inSessionManager:(AFURLSessionManager *)manager;
+- (void)didSendTask:(NSUInteger)taskIdentifier;
+- (void)cancelTask:(NSUInteger)taskIdentifier inSessionManager:(AFURLSessionManager *)manager;
 - (void)cancelRequestsInSessionManager:(AFURLSessionManager *)manager;
 
 @end
