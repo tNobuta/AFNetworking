@@ -41,7 +41,7 @@
     [[self currentRequestsInternal] removeObject:@(taskIdentifier)];
 }
 
-- (void)cancelRequestsInSessionManager:(AFURLSessionManager *)manager {
+- (void)cancelTasksInSessionManager:(AFURLSessionManager *)manager {
     NSMutableArray *requests = [self currentRequestsInternal];
     for(NSNumber *identifier in requests) {
         [manager cancelTask: [identifier unsignedIntValue]];

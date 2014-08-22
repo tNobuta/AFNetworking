@@ -14,6 +14,6 @@
 
 - (void)didSendTask:(NSInteger)taskIdentifier;
 - (void)cancelTask:(NSInteger)taskIdentifier inSessionManager:(AFURLSessionManager *)manager;
-- (void)cancelRequestsInSessionManager:(AFURLSessionManager *)manager;
+- (void)cancelTasksInSessionManager:(AFURLSessionManager *)manager;
 
 @end
