@@ -29,14 +29,14 @@
     return requests;
 }
 
-- (void)didSendTask:(NSUInteger)taskIdentifier {
+- (void)didSendTask:(NSInteger)taskIdentifier {
     NSMutableArray *requests = [self currentRequestsInternal];
     if (![requests containsObject:@(taskIdentifier)]) {
         [requests addObject:@(taskIdentifier)];
     }
 }
 
-- (void)cancelTask:(NSUInteger)taskIdentifier inSessionManager:(AFURLSessionManager *)manager {
+- (void)cancelTask:(NSInteger)taskIdentifier inSessionManager:(AFURLSessionManager *)manager {
     [manager cancelTask:taskIdentifier];
     [[self currentRequestsInternal] removeObject:@(taskIdentifier)];
 }
